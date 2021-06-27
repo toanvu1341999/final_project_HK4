@@ -5,10 +5,19 @@
  */
 package com.warehouse.project.service.debpt;
 
+import com.warehouse.project.model.CouponPay;
+import java.util.List;
+
 /**
  *
  * @author trung
  */
 public interface ICouponPay {
+     List<CouponPay> findAll();
     
+    CouponPay findOne(int id);
+     void create(CouponPay coupon);
+
+    public void DeleteById(CouponPay coupon);
+    void save(CouponPay coupon);
 }

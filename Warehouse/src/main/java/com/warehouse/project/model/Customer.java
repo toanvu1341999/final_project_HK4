@@ -6,24 +6,23 @@
 package com.warehouse.project.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author trung
+ * @author Toan
  */
 @Entity
-@Table(name = "Customer", catalog = "Databases_", schema = "dbo")
+@Table(name = "customer")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
@@ -35,54 +34,44 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findByTaxNumber", query = "SELECT c FROM Customer c WHERE c.taxNumber = :taxNumber"),
     @NamedQuery(name = "Customer.findByExplain", query = "SELECT c FROM Customer c WHERE c.explain = :explain"),
     @NamedQuery(name = "Customer.findByBirthdate", query = "SELECT c FROM Customer c WHERE c.birthdate = :birthdate"),
-    @NamedQuery(name = "Customer.findBySex", query = "SELECT c FROM Customer c WHERE c.sex = :sex"),
-    @NamedQuery(name = "Customer.findByCustomerPoint", query = "SELECT c FROM Customer c WHERE c.customerPoint = :customerPoint")})
+    @NamedQuery(name = "Customer.findBySex", query = "SELECT c FROM Customer c WHERE c.sex = :sex")})
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false, length = 50)
-    private String id;
-    @Column(name = "name", length = 50)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "name")
     private String name;
     @Column(name = "phone")
     private Integer phone;
-    @Column(name = "address", length = 50)
+    @Column(name = "address")
     private String address;
-    @Column(name = "email", length = 50)
+    @Column(name = "email")
     private String email;
     @Column(name = "tax_number")
     private Integer taxNumber;
-    @Column(name = "explain", length = 50)
+    @Column(name = "explain")
     private String explain;
-    @Column(name = "birthdate", length = 20)
+    @Column(name = "birthdate")
     private String birthdate;
     @Column(name = "sex")
-    private Boolean sex;
-    @Column(name = "customer_point")
-    private Integer customerPoint;
-    @OneToMany(mappedBy = "customerId")
-    private Collection<Quotes> quotesCollection;
-    @OneToMany(mappedBy = "customerId")
-    private Collection<Output> outputCollection;
-    @OneToMany(mappedBy = "object1")
-    private Collection<Receipts> receiptsCollection;
-    @OneToMany(mappedBy = "customerId")
-    private Collection<SalesCoupon> salesCouponCollection;
+    private String sex;
 
     public Customer() {
     }
 
-    public Customer(String id) {
+    public Customer(Integer id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -142,56 +131,12 @@ public class Customer implements Serializable {
         this.birthdate = birthdate;
     }
 
-    public Boolean getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public Integer getCustomerPoint() {
-        return customerPoint;
-    }
-
-    public void setCustomerPoint(Integer customerPoint) {
-        this.customerPoint = customerPoint;
-    }
-
-    @XmlTransient
-    public Collection<Quotes> getQuotesCollection() {
-        return quotesCollection;
-    }
-
-    public void setQuotesCollection(Collection<Quotes> quotesCollection) {
-        this.quotesCollection = quotesCollection;
-    }
-
-    @XmlTransient
-    public Collection<Output> getOutputCollection() {
-        return outputCollection;
-    }
-
-    public void setOutputCollection(Collection<Output> outputCollection) {
-        this.outputCollection = outputCollection;
-    }
-
-    @XmlTransient
-    public Collection<Receipts> getReceiptsCollection() {
-        return receiptsCollection;
-    }
-
-    public void setReceiptsCollection(Collection<Receipts> receiptsCollection) {
-        this.receiptsCollection = receiptsCollection;
-    }
-
-    @XmlTransient
-    public Collection<SalesCoupon> getSalesCouponCollection() {
-        return salesCouponCollection;
-    }
-
-    public void setSalesCouponCollection(Collection<SalesCoupon> salesCouponCollection) {
-        this.salesCouponCollection = salesCouponCollection;
     }
 
     @Override

@@ -6,24 +6,23 @@
 package com.warehouse.project.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author trung
+ * @author Toan
  */
 @Entity
-@Table(name = "supplier", catalog = "Databases_", schema = "dbo")
+@Table(name = "supplier")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Supplier.findAll", query = "SELECT s FROM Supplier s"),
@@ -41,46 +40,41 @@ public class Supplier implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false, length = 50)
-    private String id;
-    @Column(name = "name", length = 50)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "name")
     private String name;
     @Column(name = "phone")
     private Integer phone;
-    @Column(name = "address", length = 50)
+    @Column(name = "address")
     private String address;
-    @Column(name = "email", length = 50)
+    @Column(name = "email")
     private String email;
     @Column(name = "tax_number")
     private Integer taxNumber;
-    @Column(name = "explain", length = 50)
+    @Column(name = "explain")
     private String explain;
-    @Column(name = "birthdate", length = 20)
+    @Column(name = "birthdate")
     private String birthdate;
     @Column(name = "sex")
     private Boolean sex;
     @Column(name = "customer_point")
     private Integer customerPoint;
-    @OneToMany(mappedBy = "supplierId")
-    private Collection<Voucher> voucherCollection;
-    @OneToMany(mappedBy = "object1")
-    private Collection<CouponPay> couponPayCollection;
-    @OneToMany(mappedBy = "supplierId")
-    private Collection<Input> inputCollection;
 
     public Supplier() {
     }
 
-    public Supplier(String id) {
+    public Supplier(Integer id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -154,33 +148,6 @@ public class Supplier implements Serializable {
 
     public void setCustomerPoint(Integer customerPoint) {
         this.customerPoint = customerPoint;
-    }
-
-    @XmlTransient
-    public Collection<Voucher> getVoucherCollection() {
-        return voucherCollection;
-    }
-
-    public void setVoucherCollection(Collection<Voucher> voucherCollection) {
-        this.voucherCollection = voucherCollection;
-    }
-
-    @XmlTransient
-    public Collection<CouponPay> getCouponPayCollection() {
-        return couponPayCollection;
-    }
-
-    public void setCouponPayCollection(Collection<CouponPay> couponPayCollection) {
-        this.couponPayCollection = couponPayCollection;
-    }
-
-    @XmlTransient
-    public Collection<Input> getInputCollection() {
-        return inputCollection;
-    }
-
-    public void setInputCollection(Collection<Input> inputCollection) {
-        this.inputCollection = inputCollection;
     }
 
     @Override

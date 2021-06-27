@@ -19,10 +19,8 @@
     <class>com.warehouse.project.model.Coupon</class>
     <class>com.warehouse.project.model.Productionordermaterial</class>
     <class>com.warehouse.project.model.Materialgoods</class>
-    <class>com.warehouse.project.model.Receipts</class>
     <class>com.warehouse.project.model.Input</class>
     <class>com.warehouse.project.model.InputContent</class>
-    <class>com.warehouse.project.model.CouponPay</class>
     <class>com.warehouse.project.model.Quotescontent</class>
     <class>com.warehouse.project.model.Productionordercontent</class>
     <class>com.warehouse.project.model.ReceiptsReference</class>
@@ -43,9 +41,17 @@
     <class>com.warehouse.project.model.TranferConent</class>
     <class>com.warehouse.project.model.IOreport</class>
     <class>com.warehouse.project.model.IOreportrefererence</class>
+    <class>com.warehouse.project.model.Account</class>
+    <class>com.warehouse.project.model.Quest</class>
+    <class>com.warehouse.project.model.Receipts</class>
+    <class>com.warehouse.project.model.CouponPay</class>
+    <class>com.warehouse.project.model.Suplierpay</class>
+    <class>com.warehouse.project.model.Debt</class>
+    <class>com.warehouse.project.model.Other</class>
+    <class>com.warehouse.project.model.Payment</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=Databases_"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
       <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
       <property name="javax.persistence.jdbc.password" value="123"/>
     </properties>

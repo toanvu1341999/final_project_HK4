@@ -5,17 +5,18 @@
  */
 package com.warehouse.project.service.debpt;
 
-import com.warehouse.project.model.Receipts;
+import com.warehouse.project.model.CouponPay;
 import java.util.List;
 
 /**
  *
- * @author trung
+ * @author Toan
  */
-public interface IReceipts {
-    List<Receipts> findAll();
+public interface ISupplier {
+     List<CouponPay> findAll();
     
-    Receipts findOne(int id);
-     void save(Receipts debt);
-    void DeleteById(Receipts re);
+    CouponPay findOne(int id);
+
+    public void DeleteById(CouponPay coupon);
+    void save(CouponPay coupon);
 }
