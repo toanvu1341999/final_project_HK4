@@ -6,7 +6,6 @@
 package com.warehouse.project.responsitory.depbt;
 
 import com.warehouse.project.model.Customer;
-import javax.persistence.Id;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
