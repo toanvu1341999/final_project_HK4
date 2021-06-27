@@ -9,7 +9,6 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -30,7 +29,6 @@
                     </script>
                     </head>
                     <body>
-                        <!--modal-->
                         <!--create-cept-->
                         <div class="container">
                             <!-- The Modal -->
@@ -39,87 +37,80 @@
                                     <div class="modal-content">
                                         <!-- Modal body -->
                                         <div class="modal-body">
-                                            <form class="needs-validation " novalidate action="/receipts/Create" object="${toancreate}" method="post">
+                                            <form class="needs-validation " novalidate action="/suplierpay/Create" object="${toancreate}" method="post">
                                                 <div class="panel panel-primary">
                                                     <div class="panel-heading">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h2 class="text-center">Create receipt</h2>
+                                                        <h2 class="text-center">Create supplierpay</h2>
                                                     </div>
                                                     <hr>
                                                         <div class="panel-body">
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="date">Ngày thu:</label>
+                                                                        <label for="date">Date:</label>
                                                                         <input type="date" id="date" field="${date}" required  value="${date}" class="form-control input-sm" autocomplete="off"  name="date"  min="2020-01-01" max="2021-12-31" onblur="KiemTra_Ngay(this.value, 'Them');">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="object">Khách hàng:</label>
-                                                                        <input required type="text" id="object" name="object" field="${object}" class="form-control">
-                                                                            <div class="valid-feedback">hợp lệ</div>
-                                                                            <div class="invalid-feedback">Nhập tên khách hàng</div>
+                                                                        <label for="suplierid">suplier</label>
+                                                                        <input required type="text" id="suplierid" placeholder="enter customer.." name="suplierid" field="${suplierid}" class="form-control">
+                                                                            <div class="valid-feedback">Invalid</div>
+                                                                            <div class="invalid-feedback">Please enter customer name</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="address">Địa chỉ:</label>
-                                                                        <input type="text" id="address" name="address" field="${address}" class="form-control" required>
-                                                                            <div class="valid-feedback">hợp lệ</div>
-                                                                            <div class="invalid-feedback">Nhập địa chỉ</div>
+                                                                        <label for="address">Address:</label>
+                                                                        <input type="text" id="address" placeholder="enter address.." name="address" field="${address}" class="form-control" required>
+                                                                            <div class="valid-feedback">Invalid</div>
+                                                                            <div class="invalid-feedback">please enter address</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="submitter">Người nộp:</label>
-                                                                        <input type="text" id="submitter" name="submitter" field="${submitter}" class="form-control input-sm" required>
-                                                                            <div class="valid-feedback">hợp lệ</div>
-                                                                            <div class="invalid-feedback">Nhập người nộp</div>
+                                                                        <label for="submitter">submitter:</label>
+                                                                        <input type="text" id="submitter" name="submitter" placeholder="enter submitter.." field="${submitter}" class="form-control input-sm" required>
+                                                                            <div class="valid-feedback">Invalid</div>
+                                                                            <div class="invalid-feedback">please enter the submitter</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group ">
-                                                                        <label>Số tiền:</label>
-                                                                        <input type="text" id="price" name="price" field="${price}" class="form-control input-sm" required>
-
-                                                                            <div class="input-group-text">VND</div>
-
-                                                                            <div class="valid-feedback">hợp lệ</div>
-                                                                            <div class="invalid-feedback">Nhập số tiền</div>
+                                                                        <label>Price:</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="number" id="price" placeholder="enter price" name="price" field="${price}" class="form-control input-sm" required>
+                                                                                <span class="btn btn-primary" type="text">VND</span>
+                                                                        </div>
+                                                                        <div class="valid-feedback">Invalid</div>
+                                                                        <div class="invalid-feedback">please enter the amount</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="explain">Diễn giải:</label>
-                                                                        <input type="text" id="explain" name="explain" field="${explain}" class="form-control" required>
-                                                                            <div class="valid-feedback">hợp lệ</div>
-                                                                            <div class="invalid-feedback">Nhập nội dung </div>
+                                                                        <label for="explain">explain:</label>
+                                                                        <textarea rows="2" class="form-control" id="explain" name="explain" field="${explain}"></textarea>
+                                                                        <div class="valid-feedback">Invalid</div>
+                                                                        <div class="invalid-feedback">Please enter the content</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group ">
-                                                                        <label for="major">Nghiệp vụ:</label>
-                                                                        <select id="major" name="major" field="${major}" class="form-control input-sm" required>
-                                                                            <option value="" selected="">Vui lòng chọn...</option>
-                                                                            <option value="ThuKhac" >Thu khác</option>
-                                                                            <option value="Thu nợ">Thu nợ</option>
-                                                                        </select>
-                                                                        <div class="valid-feedback">hợp lệ</div>
-                                                                        <div class="invalid-feedback">vui lòng chọn nghiệp vụ...</div>
+                                                                        <label for="major">major:</label>
+                                                                        <input type="text" id="major" name="major" field="${major}" value="pay for the purchase"class="form-control input-sm" required readonly/>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="collector">Người thu:</label>
-                                                                <select id="collector" name="collector" field="${collector}"class="form-control input-sm" required>
-                                                                    <option value=""  selected="">Vui lòng chọn...</option>
-                                                                    <option value="Nhân viên">nhân viên</option>
+                                                                <label for="voter">voter:</label>
+                                                                <select id="voter" name="voter" field="${voter}"class="form-control input-sm" required>
+                                                                    <option value="Staff">Staff</option>
                                                                     <option value="Admin">admin</option>
                                                                     <option value="Trung">Trung</option>
                                                                 </select>
 
-                                                                <div class="invalid-feedback">vui lòng chọn người thu...</div>
+                                                                <div class="invalid-feedback">please choose receiver...</div>
                                                             </div>
                                                             <div>
                                                                 <input type="submit" class="btn btn-success  btn-btn-padding " value="Save"/>
@@ -141,88 +132,88 @@
                                 <div class="modal-content">
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form class="needs-validation " novalidate action="/receipts/edit" object="${cs}" method="post">
+                                        <form class="needs-validation " novalidate action="/suplierpay/edit" object="${cs}" method="post">
                                             <input type="hidden" field="${id}" />
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h2 class="text-center">Edit receipt</h2>
+                                                    <h2 class="text-center">Edit suplierpay</h2>
                                                 </div>
                                                 <hr>
 
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="date">Ngày thu:</label>
+                                                                <label for="date">Date:</label>
                                                                 <input type="date" id="date" required value="${cs.date}" class="form-control input-sm" autocomplete="off" name="date" min="2021-01-01 " max="2021-12-31" onblur="KiemTra_Ngay(this.value, 'Them');">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="object">Khách hàng:</label>
-                                                                <input required type="text" id="object" name="object" value="${cs.object}" class="form-control">
-                                                                    <div class="valid-feedback">hợp lệ</div>
-                                                                    <div class="invalid-feedback">Nhập tên khách hàng</div>
+                                                                <label for="suplierid">Client:</label>
+                                                                <input required type="text" id="suplierid" name="suplierid" value="${cs.suplierid}" class="form-control">
+                                                                    <div class="valid-feedback">Invalid</div>
+                                                                    <div class="invalid-feedback">Please enter customer name</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="address">Địa chỉ:</label>
+                                                                <label for="address">Address:</label>
                                                                 <input type="text" id="address" name="address" value="${cs.getAddress()}" class="form-control" required>
-                                                                    <div class="valid-feedback">hợp lệ</div>
-                                                                    <div class="invalid-feedback">Nhập địa chỉ</div>
+                                                                    <div class="valid-feedback">Invalid</div>
+                                                                    <div class="invalid-feedback">please enter address</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
-                                                                <label for="price">Số tiền:</label>
-                                                                <input type="text" id="price" name="price" value="${cs.price}" class="form-control input-sm" required>
-                                                                    <span class="input-group-text">VND</span>
-                                                                    <div class="valid-feedback">hợp lệ</div>
-                                                                    <div class="invalid-feedback">Nhập số tiền</div>
+                                                                <label for="price">Price:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="price" placeholder="enter price" name="price" value="${cs.price}" class="form-control input-sm" required>
+                                                                        <span class="btn btn-primary" type="text">VND</span>
+                                                                </div>
+                                                                <div class="valid-feedback">Invalid</div>
+                                                                <div class="invalid-feedback">please enter the amount</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="submitter">Người nộp:</label>
+                                                                <label for="submitter">Submitter:</label>
                                                                 <input type="text" id="submitter" name="submitter" value="${cs.submitter}" class="form-control input-sm" required>
-                                                                    <div class="valid-feedback">hợp lệ</div>
-                                                                    <div class="invalid-feedback">Nhập người nộp</div>
+                                                                    <div class="valid-feedback">Invalid</div>
+                                                                    <div class="invalid-feedback">please enter the submitter</div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="explain">Diễn giải:</label>
+                                                                <label for="explain">Explain:</label>
                                                                 <input type="text" id="explain" name="explain" value="${cs.explain}" class="form-control" required>
-                                                                    <div class="valid-feedback">hợp lệ</div>
-                                                                    <div class="invalid-feedback">Nhập nội dung </div>
+                                                                    <div class="valid-feedback">Invalid</div>
+                                                                    <div class="invalid-feedback">Please enter the content</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
-                                                                <label for="major">Nghiệp vụ:</label>
+                                                                <label for="major">Major:</label>
                                                                 <select id="major" name="major" value="${cs.major}" class="form-control input-sm" required>
-                                                                    <option value="" selected="">Vui lòng chọn...</option>
-                                                                    <option value="TEST">Test</option>
-                                                                    <option value="Thu khác" >Thu khác</option>
-                                                                    <option value="Thu nợ">Thu nợ</option>
+                                                                    <option value="" selected="">Please choose...</option>
+                                                                    <option value="Other Autumn" >Other Autumn</option>
+                                                                    <option value="Debt collection">Debt collection</option>
                                                                 </select>
-                                                                <div class="valid-feedback">hợp lệ</div>
-                                                                <div class="invalid-feedback">vui lòng chọn nghiệp vụ...</div>
+                                                                <div class="valid-feedback">Invalid</div>
+                                                                <div class="invalid-feedback">Please choose your profession...</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="collector">Người thu:</label>
-                                                        <select id="collector" name="collector" value="${cs.collector}" class="form-control input-sm" required>
-                                                            <!--                                    <option value=""  selected="">Vui lòng chọn...</option>-->
-                                                            <option value="${cs.collector}">nhân viên</option>
-                                                            <option value="${cs.collector}">admin</option>
-                                                            <option value="${cs.collector}">Trung</option>
+                                                        <label for="voter">Voter:</label>
+                                                        <select id="voter" name="voter" value="${cs.voter}" class="form-control input-sm" required>
+                                                            <option value="${cs.voter}">nhân viên</option>
+                                                            <option value="${cs.voter}">admin</option>
+                                                            <option value="${cs.voter}">Trung</option>
                                                         </select>
 
-                                                        <div class="invalid-feedback">vui lòng chọn người thu...</div>
+                                                        <div class="invalid-feedback">please choose receiver...</div>
                                                     </div>
                                                     <div>
                                                         <input type="submit" class="btn btn-success  btn-btn-padding " value="Update" />
@@ -239,29 +230,29 @@
                         <!--table search-->
                         <div class="container">
                             <div class="pull-right">
-                                <a href="/receipts/doCreate"></a>
+                                <a href="/suplierpay/doCreate"></a>
                                 <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-                                    <i class="fal fa-plus-circle"></i> Tạo phiếu thu</button>
-                                <a  href="#">  <button type="button" class="btn btn-success btn-sm" accesskey="U" onclick="XuLy_XuatExcel();"><i class="fal fa-inbox-in"></i> X<u>u</u>ất Excel</button></a>
+                                    <i class="fal fa-plus-circle"></i> Create New</button>
+                                <a  href="#">  <button type="button" class="btn btn-success btn-sm" accesskey="U" onclick="XuLy_XuatExcel();"><i class="fal fa-inbox-in"></i> import Excel</button></a>
                             </div>
                             <br>
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Stt</th>
-                                            <th>Ngày</th>
-                                            <th>Khách Hàng</th>
-                                            <th>Số tiền </th>
-                                            <th>nghiệp vụ</th>
-                                            <th>người lập phiếu</th>
-                                            <th>xóa</th>
+                                            <th>Date</th>
+                                            <th>Client</th>
+                                            <th>Price</th>
+                                            <th>Major</th>
+                                            <th>Voter</th>
+                                            <th>delete</th>
                                             <th>in</th>
                                         </tr>
 
                                     </thead>
                                     <tbody> 
 
-                                        <c:forEach items="${listreceipts}" var="c">
+                                        <c:forEach items="${suplist}" var="c">
                                             <tr>
                                                 <td>
                                                     <c:out value="${c.getId()}" />
@@ -270,8 +261,8 @@
                                                     <c:out value="${c.getDate()}" />
                                                 </td>
                                                 <td>
-                                                    <a href="/receipts/doEdit/${c.getId()} " data-toggle="modal" data-target="#myModal2"> 
-                                                    <c:out value="${c.getObject()}" /></a>  |
+                                                    <a href="/suplierpay/doEdit/${c.getId()} " data-toggle="modal" data-target="#myModal2"> 
+                                                        <c:out value="${c.getSuplierid()}" /></a>  |
                                                     <c:out value="${c.getSubmitter()}" /> -
                                                     <c:out value="${c.getAddress()}" /> 
                                                     <span style="color: #00a65a !important; font-style: italic;">( <c:out value="${c.getExplain()}"  />)</span> 
@@ -284,11 +275,11 @@
                                                     <c:out value="${c.getMajor()}" />
                                                 </td>
                                                 <td>
-                                                    <c:out value="${c.getCollector()}" />
+                                                    <c:out value="${c.getVoter()}" />
                                                 </td>
                                                 <td>
 
-                                                    <a href="/receipts/delete/${c.getId()}" onclick="return confirm('Are you sure you want to delete this item?');" data-method="post" data-method-id="delete_2" data-trans-button-cancel="Cancel" data-trans-button-confirm="Delete" data-trans-title="Are you sure you want to do this?" class="btn btn-danger" style="cursor:pointer;" onclick="$(this).find( & quot; form & quot; ).submit();">
+                                                    <a href="/suplierpay/delete/${c.getId()}" onclick="return confirm('Are you sure you want to delete this item?');" data-method="post" data-method-id="delete_2" data-trans-button-cancel="Cancel" data-trans-button-confirm="Delete" data-trans-title="Are you sure you want to do this?" class="btn btn-danger" style="cursor:pointer;" onclick="$(this).find( & quot; form & quot; ).submit();">
                                                         <i class="fas fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
                                                         <form data-method-id="delete_2" action="#" method="POST" name="delete_item" style="display:none">
                                                             <input type="hidden" name="_method" value="post" autocomplete="off">
@@ -307,12 +298,12 @@
                                     <tfoot>
                                         <tr>
                                             <th>Stt</th>
-                                            <th>Ngày</th>
-                                            <th>Khách Hàng</th>
-                                            <th>Số tiền </th>
-                                            <th>nghiệp vụ</th>
-                                            <th>người lập phiếu</th>
-                                            <th>xóa</th>
+                                            <th>Date</th>
+                                            <th>Client</th>
+                                            <th>Price</th>
+                                            <th>Major</th>
+                                            <th>Voter</th>
+                                            <th>delete</th>
                                             <th>in</th>
                                         </tr>
                                     </tfoot>

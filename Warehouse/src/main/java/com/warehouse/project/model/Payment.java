@@ -54,7 +54,7 @@ public class Payment implements Serializable {
     @Column(name = "explain")
     private String explain;
     @Column(name = "price")
-    private String price;
+    private Integer price;
     @Column(name = "major")
     private String major;
     @Column(name = "voter")
@@ -115,11 +115,11 @@ public class Payment implements Serializable {
         this.explain = explain;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

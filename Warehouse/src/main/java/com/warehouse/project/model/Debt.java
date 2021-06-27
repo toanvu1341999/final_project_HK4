@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Debt.findAll", query = "SELECT d FROM Debt d"),
     @NamedQuery(name = "Debt.findById", query = "SELECT d FROM Debt d WHERE d.id = :id"),
     @NamedQuery(name = "Debt.findByDate", query = "SELECT d FROM Debt d WHERE d.date = :date"),
-    @NamedQuery(name = "Debt.findByCustomerId", query = "SELECT d FROM Debt d WHERE d.customerId = :customerId"),
+    @NamedQuery(name = "Debt.findByCustomerid", query = "SELECT d FROM Debt d WHERE d.customerid = :customerid"),
     @NamedQuery(name = "Debt.findBySubmitter", query = "SELECT d FROM Debt d WHERE d.submitter = :submitter"),
     @NamedQuery(name = "Debt.findByAddress", query = "SELECT d FROM Debt d WHERE d.address = :address"),
     @NamedQuery(name = "Debt.findByExplain", query = "SELECT d FROM Debt d WHERE d.explain = :explain"),
@@ -45,8 +45,8 @@ public class Debt implements Serializable {
     private Integer id;
     @Column(name = "date")
     private String date;
-    @Column(name = "customer_id")
-    private String customerId;
+    @Column(name = "customerid")
+    private String customerid;
     @Column(name = "submitter")
     private String submitter;
     @Column(name = "address")
@@ -83,12 +83,12 @@ public class Debt implements Serializable {
         this.date = date;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public String getCustomerid() {
+        return customerid;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomerid(String customerid) {
+        this.customerid = customerid;
     }
 
     public String getSubmitter() {

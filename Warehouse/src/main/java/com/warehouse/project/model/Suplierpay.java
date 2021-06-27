@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Suplierpay.findAll", query = "SELECT s FROM Suplierpay s"),
     @NamedQuery(name = "Suplierpay.findById", query = "SELECT s FROM Suplierpay s WHERE s.id = :id"),
     @NamedQuery(name = "Suplierpay.findByDate", query = "SELECT s FROM Suplierpay s WHERE s.date = :date"),
-    @NamedQuery(name = "Suplierpay.findBySuplierId", query = "SELECT s FROM Suplierpay s WHERE s.suplierId = :suplierId"),
+    @NamedQuery(name = "Suplierpay.findBySuplierid", query = "SELECT s FROM Suplierpay s WHERE s.suplierid = :suplierid"),
     @NamedQuery(name = "Suplierpay.findBySubmitter", query = "SELECT s FROM Suplierpay s WHERE s.submitter = :submitter"),
     @NamedQuery(name = "Suplierpay.findByAddress", query = "SELECT s FROM Suplierpay s WHERE s.address = :address"),
     @NamedQuery(name = "Suplierpay.findByExplain", query = "SELECT s FROM Suplierpay s WHERE s.explain = :explain"),
@@ -45,8 +45,8 @@ public class Suplierpay implements Serializable {
     private Integer id;
     @Column(name = "date")
     private String date;
-    @Column(name = "suplier_id")
-    private String suplierId;
+    @Column(name = "suplierid")
+    private String suplierid;
     @Column(name = "submitter")
     private String submitter;
     @Column(name = "address")
@@ -83,12 +83,12 @@ public class Suplierpay implements Serializable {
         this.date = date;
     }
 
-    public String getSuplierId() {
-        return suplierId;
+    public String getSuplierid() {
+        return suplierid;
     }
 
-    public void setSuplierId(String suplierId) {
-        this.suplierId = suplierId;
+    public void setSuplierid(String suplierid) {
+        this.suplierid = suplierid;
     }
 
     public String getSubmitter() {

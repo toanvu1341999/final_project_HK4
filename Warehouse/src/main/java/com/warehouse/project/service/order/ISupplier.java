@@ -10,7 +10,5 @@ package com.warehouse.project.service.order;
  * @author trung
  */
 public interface ISupplier {
-
-    public Object findAll();
     
 }

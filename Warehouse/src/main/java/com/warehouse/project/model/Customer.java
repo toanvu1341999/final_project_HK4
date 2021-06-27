@@ -9,8 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Toan
  */
 @Entity
-@Table(name = "customer")
+@Table(name = "Customer")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
@@ -34,15 +32,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Customer.findByTaxNumber", query = "SELECT c FROM Customer c WHERE c.taxNumber = :taxNumber"),
     @NamedQuery(name = "Customer.findByExplain", query = "SELECT c FROM Customer c WHERE c.explain = :explain"),
     @NamedQuery(name = "Customer.findByBirthdate", query = "SELECT c FROM Customer c WHERE c.birthdate = :birthdate"),
-    @NamedQuery(name = "Customer.findBySex", query = "SELECT c FROM Customer c WHERE c.sex = :sex")})
+    @NamedQuery(name = "Customer.findBySex", query = "SELECT c FROM Customer c WHERE c.sex = :sex"),
+    @NamedQuery(name = "Customer.findByCustomerPoint", query = "SELECT c FROM Customer c WHERE c.customerPoint = :customerPoint")})
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private String id;
     @Column(name = "name")
     private String name;
     @Column(name = "phone")
@@ -58,20 +56,22 @@ public class Customer implements Serializable {
     @Column(name = "birthdate")
     private String birthdate;
     @Column(name = "sex")
-    private String sex;
+    private Boolean sex;
+    @Column(name = "customer_point")
+    private Integer customerPoint;
 
     public Customer() {
     }
 
-    public Customer(Integer id) {
+    public Customer(String id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -131,12 +131,20 @@ public class Customer implements Serializable {
         this.birthdate = birthdate;
     }
 
-    public String getSex() {
+    public Boolean getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Boolean sex) {
         this.sex = sex;
+    }
+
+    public Integer getCustomerPoint() {
+        return customerPoint;
+    }
+
+    public void setCustomerPoint(Integer customerPoint) {
+        this.customerPoint = customerPoint;
     }
 
     @Override
